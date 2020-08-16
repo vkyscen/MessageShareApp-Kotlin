@@ -1,4 +1,4 @@
-package com.example.firstmsgshareapp.com.example.firstmsgshareapp
+package com.example.firstmsgshareapp.com
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast

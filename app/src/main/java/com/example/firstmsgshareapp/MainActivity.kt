@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.firstmsgshareapp.com.example.firstmsgshareapp.SecondActivity
+import com.example.firstmsgshareapp.com.SecondActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             val message: String =  editText.text.toString()
 //            Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,
+
                 SecondActivity::class.java).putExtra("userInput",message))
         }
 
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             intent.type ="text/plain"
 
             startActivity(Intent.createChooser(intent,"Share To :"))
+        }
+
+        RecyclerButton.setOnClickListener {
+            startActivity(Intent(this,HobbiesActivities::class.java))
         }
     }
 
