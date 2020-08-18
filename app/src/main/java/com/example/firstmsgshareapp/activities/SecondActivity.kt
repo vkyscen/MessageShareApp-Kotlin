@@ -1,4 +1,5 @@
-package com.example.firstmsgshareapp.com
+package com.example.firstmsgshareapp.activities
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -13,12 +14,12 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val bunddle : Bundle? = intent.extras
-        val msg =bunddle!!.getString("userInput")
+        val bundle: Bundle? = intent.extras
+        val msg = bundle!!.getString("userInput")
 
         textView.text = msg
-        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()
-        }
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
 
 
 }
