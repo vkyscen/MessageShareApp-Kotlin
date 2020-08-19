@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.firstmsgshareapp.R
+import com.example.firstmsgshareapp.extensions.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         Toastbutton.setOnClickListener {
             Log.i("Toast Button", "Button was clicked")
-            Toast.makeText(this, "hi thi is vicky", Toast.LENGTH_SHORT).show()
+            showToast("hi thi is vicky")
+//            Toast.makeText(this, "hi thi is vicky", Toast.LENGTH_SHORT).show()
         }
         LoginButton.setOnClickListener {
             val message: String = editText.text.toString()

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstmsgshareapp.models.Hobby
 import com.example.firstmsgshareapp.R
+import com.example.firstmsgshareapp.extensions.showToast
 import kotlinx.android.synthetic.main.list_card.view.*
 
 class HobbiesAdapter(val context: Context, private val hobbies: List<Hobby>) :
@@ -36,20 +37,30 @@ class HobbiesAdapter(val context: Context, private val hobbies: List<Hobby>) :
 
         init {
             itemView.setOnClickListener {
-                Toast.makeText(context, currentHobby!!.title + "clicked", Toast.LENGTH_SHORT).show()
+                currentHobby?.let {
+                    context.showToast(currentHobby!!.title + "clicked")
+                }
+
+//                Toast.makeText(context, currentHobby!!.title + "clicked", Toast.LENGTH_SHORT).show()
             }
             itemView.imgShare.setOnClickListener {
-                val message: String = "My Hobby is " + currentHobby!!.title
-                val intent = Intent()
-                intent.action = Intent.ACTION_SEND
-                intent.putExtra(Intent.EXTRA_TEXT, message)
-                intent.type = "text/plain"
-                context.startActivity(Intent.createChooser(intent, "Share To :"))
+                currentHobby?.let {
+                    val message: String = "My Hobby is " + currentHobby!!.title
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_SEND
+                    intent.putExtra(Intent.EXTRA_TEXT, message)
+                    intent.type = "text/plain"
+                    context.startActivity(Intent.createChooser(intent, "Share To :"))
+                }
+
             }
         }
 
-        fun setData(hobby: Hobby, position: Int) {
-            itemView.txvTitle.text = hobby!!.title
+        fun setData(hobby: Hobby?, position: Int) {
+            hobby?.let {
+                itemView.txvTitle.text = hobby.title
+            }
+
             this.currentHobby = hobby
             this.currentPosition = position
         }

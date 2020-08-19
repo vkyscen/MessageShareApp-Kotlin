@@ -17,7 +17,7 @@ class HobbiesActivities : AppCompatActivity() {
 
     }
 
-    fun setUpRecyclerview() {
+    private fun setUpRecyclerview() {
 
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
