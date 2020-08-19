@@ -5,18 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.firstmsgshareapp.Constants
 import com.example.firstmsgshareapp.R
 import com.example.firstmsgshareapp.extensions.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    companion object{
+        val TAG: String = MainActivity::class.java.simpleName
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         Toastbutton.setOnClickListener {
-            Log.i("Toast Button", "Button was clicked")
+            Log.i(TAG, "Button was clicked")
             showToast("hi thi is vicky")
 //            Toast.makeText(this, "hi thi is vicky", Toast.LENGTH_SHORT).show()
         }
@@ -28,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                     this,
 
                     SecondActivity::class.java
-                ).putExtra("userInput", message)
+                ).putExtra(Constants.USER_MSG_KEY, message)
             )
         }
 

@@ -15,7 +15,9 @@ import kotlinx.android.synthetic.main.list_card.view.*
 class HobbiesAdapter(val context: Context, private val hobbies: List<Hobby>) :
     RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>() {
 
-
+    companion object{
+        val TAG: String = HobbiesAdapter::class.java.simpleName
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_card, parent, false)
         return MyViewHolder(view)
